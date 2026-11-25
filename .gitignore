@@ -1,0 +1,10 @@
+# Original uncompressed WhatsApp JPEG photos (keep local only)
+*.jpeg
+*.jpg
+WhatsApp Image*
+
+# OS & deployment artifacts
+.DS_Store
+Thumbs.db
+.vercel
+node_modules
