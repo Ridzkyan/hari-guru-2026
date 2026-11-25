@@ -1069,6 +1069,114 @@ a {
 }
 
 /* ==========================================================================
+   5B. UNTAIAN PUISI UNTUK GURU
+   ========================================================================== */
+.poems-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.poem-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.4rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, #fffdf9 0%, #fbf6ec 100%);
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.poem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.poem-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.poem-tag {
+  display: inline-block;
+  padding: 0.25rem 0.72rem;
+  border-radius: 999px;
+  background: var(--sage-soft);
+  color: var(--sage-deep);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.poem-copy-btn {
+  min-height: 34px;
+  padding: 0.28rem 0.82rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-gold);
+  background: rgba(255, 253, 249, 0.9);
+  color: var(--sage-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.poem-copy-btn:hover {
+  background: var(--sage-deep);
+  color: #fffdf9;
+  border-color: var(--sage-deep);
+}
+
+.poem-copy-btn.is-copied {
+  background: var(--gold);
+  color: #fffdf9;
+  border-color: var(--gold);
+}
+
+.poem-title {
+  margin: 0 0 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 5vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--sage-deep);
+}
+
+.poem-body {
+  flex: 1;
+  padding-left: 0.95rem;
+  border-left: 2px solid rgba(184, 138, 56, 0.42);
+}
+
+.poem-body p {
+  margin: 0 0 0.95rem;
+  font-family: var(--font-serif);
+  font-size: 1.14rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ink-primary);
+}
+
+.poem-body p:last-child {
+  margin-bottom: 0;
+}
+
+.poem-footer {
+  margin-top: 1.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-warm);
+  font-family: var(--font-script);
+  font-size: 1.25rem;
+  color: var(--gold);
+  text-align: right;
+}
+
+/* ==========================================================================
    6. PILAR KETELADANAN & KUTIPAN
    ========================================================================== */
 .pillars-grid {
@@ -1759,6 +1867,15 @@ a {
 
   .pillars-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .poems-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+
+  .poem-card {
+    padding: 1.9rem 1.75rem;
   }
 
   .wish-wall {

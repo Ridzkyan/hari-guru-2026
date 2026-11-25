@@ -8,17 +8,17 @@
 
   const YOUTUBE_VIDEO_ID = "1dFJZvr4pA8";
   const STORAGE_BLOOMS_KEY = "hariguru2026_blooms_v1";
-  const STORAGE_WISHES_KEY = "hariguru2026_wishes_v1";
+  const STORAGE_WISHES_KEY = "hariguru2026_wishes_v2";
 
   const DEFAULT_WISHES = [
     {
-      name: "Ridzkyan",
+      name: "Ridho Dzaky Raihan",
       message:
         "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu, kesabaran, dan kasih sayang yang selalu menguatkan langkah kami. Semoga selalu sehat dan bahagia.",
       time: "25 Nov 2026",
     },
     {
-      name: "Keluarga Tercinta",
+      name: "Doa untuk Dua Guru Hebat",
       message:
         "Bangga sekali memiliki dua sosok guru hebat yang penuh ketulusan. Semoga setiap ilmu yang diajarkan menjadi amal jariyah yang mengalir tanpa henti.",
       time: "25 Nov 2026",
@@ -587,5 +587,33 @@
 
     wishForm.reset();
     launchConfetti(window.innerWidth / 2, window.innerHeight * 0.55, 26);
+  });
+
+  // =========================================================================
+  // 8. COPY POEM BUTTON (HANDY FOR WHATSAPP SHARING ON MOBILE)
+  // =========================================================================
+  document.querySelectorAll("[data-poem-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const card = btn.closest(".poem-card");
+      if (!card) return;
+      const title = card.querySelector(".poem-title")?.textContent?.trim() || "";
+      const stanzas = Array.from(card.querySelectorAll(".poem-body p")).map((p) =>
+        p.innerText.trim()
+      );
+      const footer = card.querySelector(".poem-footer")?.textContent?.trim() || "";
+      const fullText = `${title}\n\n${stanzas.join("\n\n")}\n\n${footer}`;
+
+      try {
+        await navigator.clipboard.writeText(fullText);
+        btn.textContent = "Tersalin ✓";
+        btn.classList.add("is-copied");
+        window.setTimeout(() => {
+          btn.textContent = "Salin";
+          btn.classList.remove("is-copied");
+        }, 2000);
+      } catch (_) {
+        btn.textContent = "Pilih teks";
+      }
+    });
   });
 })();
