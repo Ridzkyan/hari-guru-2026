@@ -1,0 +1,6 @@
+*.jpeg
+*.jpg
+WhatsApp Image*
+.git
+.DS_Store
+Thumbs.db
